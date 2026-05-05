@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from 'next/script'
 
 const rawSiteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
@@ -87,4 +88,24 @@ export default function RootLayout({
       <body>{children}</body>
     </html>
   );
+}
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="vi">
+      <head>
+        
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-L2MW24D2YG" strategy="afterInteractive"/>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-L2MW24D2YG');
+          `}
+        </Script>
+      </head>
+      <body>{children}</body>
+    </html>
+  )
 }
