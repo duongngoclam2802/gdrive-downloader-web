@@ -5,13 +5,21 @@ va deploy bang GitHub Actions.
 
 ## 1. Chuan bi truoc khi push
 
-Neu co file cai dat that, dat file vao:
+Neu co file tai xuong that, dat file vao:
 
 ```text
-public/downloads/GDriveAdvancedDownloaderSetup.exe
+public/downloads/GDriveAdvancedDownloaderSetup.rar
 ```
 
-Neu chua co file `.exe`, nut tai se chua tai duoc file that.
+Neu muon dung ten file khac, cau hinh bien moi truong khi build:
+
+```text
+NEXT_PUBLIC_DOWNLOAD_FILE=TenFileCuaBan.rar
+```
+
+File van can nam trong thu muc `public/downloads/`.
+
+Neu chua co file `.rar`, nut tai se chua tai duoc file that.
 
 ## 2. Tao repository tren GitHub
 

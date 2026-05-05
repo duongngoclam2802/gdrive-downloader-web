@@ -27,7 +27,9 @@ import { useState } from "react";
 
 const smoothEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
-const downloadPath = `${basePath}/downloads/GDriveAdvancedDownloaderSetup.exe`;
+const downloadFileName =
+  process.env.NEXT_PUBLIC_DOWNLOAD_FILE || "GDriveAdvancedDownloaderSetup.rar";
+const downloadPath = `${basePath}/downloads/${downloadFileName.replace(/^\/+/, "")}`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -373,7 +375,7 @@ export default function Home() {
             className="mt-9 inline-flex min-h-14 items-center justify-center gap-3 rounded-lg bg-cyanGlow px-8 py-4 text-base font-semibold text-ink shadow-[0_0_42px_rgba(86,217,255,0.45)] transition-colors hover:bg-white"
           >
             <Download className="h-5 w-5" />
-            Tải file cài đặt .exe
+            Tải file cài đặt .rar
           </motion.a>
           <div className="mx-auto mt-8 grid max-w-2xl gap-3 text-left text-sm text-slate-300 sm:grid-cols-3">
             {["File/folder Drive", "Link view only", "Tải đa luồng"].map((item) => (
